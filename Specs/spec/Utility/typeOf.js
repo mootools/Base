@@ -1,6 +1,8 @@
 
 define(['Base/Utility/typeOf'], function(typeOf){
 
+	var global = this;
+
 	describe('typeOf', function(){
 
 		it("should return 'array' for Array objects", function(){
@@ -51,6 +53,14 @@ define(['Base/Utility/typeOf'], function(typeOf){
 
 		it("should return 'null' for undefined objects", function(){
 			expect(typeOf(undefined)).toEqual('null');
+		});
+
+		it("should return 'document' for document objects", function(){
+			expect(typeOf(document)).toEqual('document');
+		});
+
+		it("should return 'global' for the global object", function(){
+			expect(typeOf(global)).toEqual('global');
 		});
 
 	});
