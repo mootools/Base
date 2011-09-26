@@ -8,8 +8,9 @@ description: type of
 define(function(){
 	
 var toString = Object.prototype.toString,
-	types = {'[object Text]': 'textnode'},
-	_types = 'Array,String,Function,Date,NodeList,Arguments,RegExp,Boolean'.split(',');
+	types = {'[object Text]': 'textnode', '[object HTMLDocument]': 'document', '[object global]': 'global'},
+	_types = 'Array,String,Function,Date,NodeList,Arguments,RegExp,Boolean'.split(','),
+	global = this;
 
 for (var i = _types.length; i--;) types['[object ' + _types[i] + ']'] = _types[i].toLowerCase();
 
@@ -28,6 +29,9 @@ return function(item){
 		if (item.nodeName){
 			if (item.nodeType == 1) return 'element';
 			if (item.nodeType == 3) return 'textnode';
+			if (item.nodeType == 9) return 'document';
+		} else if (item == global){
+			return 'global';
 		} else if (typeof item.length == 'number'){
 			if (item.callee) return 'arguments';
 			if ('item' in item) return 'nodelist';
