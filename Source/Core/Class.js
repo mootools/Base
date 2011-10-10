@@ -44,7 +44,7 @@ Class.addAccessor = function(accessor){
 	if (!this.accessors) this.accessors = [];
 	accessor = (typeof accessor != 'string') ? accessor() : Accessor.apply(null, arguments);
 	this.accessors.push(accessor);
-	for (var p in accessor) this[p] = accessor[p];
+	for (var p in accessor) if (p != 'prototype') this[p] = accessor[p];
 	return this;
 };
 
