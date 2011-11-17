@@ -5,7 +5,9 @@ description: Options
 ...
 */
 
-define(['../Utility/typeOf', '../Utility/merge', '../Utility/Function', '../Core/Class'], function(typeOf, merge, Function, Class){
+define([
+	'../Core', '../Utility/typeOf', '../Utility/merge', '../Utility/Function', '../Class'
+], function(Core, typeOf, merge, Function, Class){
 
 "use strict";
 
@@ -25,11 +27,11 @@ var classGetOption = function(key){
 	return (value != null) ? value : null;
 };
 
-return new Class({
+return (Core.Options = new Class({
 	setOption: classSetOption,
 	setOptions: Function.overloadSetter(classSetOption, true),
 	getOption: classGetOption,
 	getOptions: Function.overloadGetter(classGetOption, true)
-});
+}));
 
 });

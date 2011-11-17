@@ -6,8 +6,8 @@ description: simple Sandbox
 */
 
 define([
-	'./Utility/typeOf', './Host/Array', './Host/Date', './Host/Function', './Host/Number', './Host/Object', './Host/RegExp', './Host/String'
-], function(typeOf, A, D, F, N, O, R, S){
+	'./Core', './Utility/typeOf', './Host/Array', './Host/Date', './Host/Function', './Host/Number', './Host/Object', './Host/RegExp', './Host/String'
+], function(Core, typeOf, A, D, F, N, O, R, S){
 
 "use strict";
 
@@ -46,7 +46,7 @@ for (var h in hosts) (function(host, h){
 
 })(hosts[h], h);
 
-var sb = function(item){
+var sb = Core.SandBox = function(item){
 	if (item == null) return null;
 	item = item.valueOf();
 	var type = typeOf(item).toUpperCase(), sandbox = sandboxes[type];

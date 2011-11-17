@@ -7,13 +7,13 @@ provides: Events
 ...
 */
 
-define(['../Core/Class', '../Utility/Function', '../Data/Table'], function(Class, Function, Table){
+define(['../Core', '../Class', '../Utility/Function', '../Data/Table'], function(Class, Function, Table){
 
 "use strict";
 
 var uid = '_events';
 
-return new Class({
+return (Core.Events = new Class({
 
 	listen: Function.overloadSetter(function(type, fn){
 		if (!this[uid]) this[uid] = {};
@@ -62,6 +62,6 @@ return new Class({
 		return this;
 	}
 
-});
+}));
 
 });

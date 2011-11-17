@@ -2,11 +2,11 @@
 Contains the Class Function for easily creating, extending, and implementing reusable Classes.
 */
 
-define(['./Utility/typeOf', './Host/Object', './Accessor'], function(typeOf, Object, Accessor){
+define(['./Core', './Utility/typeOf', './Host/Object', './Accessor'], function(Core, typeOf, Object, Accessor){
 
 "use strict";
 
-var Class = function(params){
+var Class = Core.Class = function(params){
 
 	if (!params) params = {};
 

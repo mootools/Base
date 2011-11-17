@@ -7,7 +7,7 @@ provides: Store
 ...
 */
 
-define(['../Core/Class', '../Utility/Function'], function(Class, Function){
+define(['../Core', '../Core/Class', '../Utility/Function'], function(Core, Class, Function){
 
 "use strict";
 
@@ -17,7 +17,7 @@ var storageOf = function(object){
 	return object[uid] || (object[uid] = {});
 };
 
-return new Class({
+return (Core.Store = new Class({
 
 	store: Function.overloadSetter(function(key, value){
 		storageOf(this)[key] = value;
@@ -37,6 +37,6 @@ return new Class({
 		return value;
 	})
 
-});
+}));
 
 });
