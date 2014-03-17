@@ -5,7 +5,7 @@ description: type of
 ...
 */
 
-define(function(){
+define(['../Core'], function(Core){
 
 "use strict";
 
@@ -15,7 +15,7 @@ var toString = Object.prototype.toString,
 
 for (var i = _types.length; i--;) types['[object ' + _types[i] + ']'] = _types[i].toLowerCase();
 
-return function(item){
+return (Core.typeOf = function(item){
 	if (item == null) return 'null';
 
 	var _class = toString.call(item), type = types[_class]; 
@@ -37,6 +37,6 @@ return function(item){
 	}
 
 	return 'object';
-};
+});
 	
 });

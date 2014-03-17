@@ -5,11 +5,11 @@ description: Chain
 ...
 */
 
-define(['../Core/Class'], function(Class){
+define(['../Core', '../Class'], function(Core, Class){
 
 "use strict";
 
-return new Class({
+return (Core.Chain = new Class({
 
 	chain: function(fn){
 		if (!this._chain) this._chain = [];
@@ -26,6 +26,6 @@ return new Class({
 		return this;
 	}
 
-});
+}));
 
 });

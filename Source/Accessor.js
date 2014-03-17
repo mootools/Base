@@ -2,11 +2,11 @@
 Access things
 */
 
-define(['./Utility/typeOf', './Host/Object', './Host/Array'], function(typeOf, Object, Array){
+define(['./Core', './Utility/typeOf', './Host/Object', './Host/Array'], function(Core, typeOf, Object, Array){
 
 "use strict";
 
-var Accessor = function(singular, plural, accessor, matcher){
+var Accessor = Core.Accessor = function(singular, plural, accessor, matcher){
 
 	singular = singular || ''; plural = plural || singular + 's'; accessor = accessor || {}; matcher = matcher || {};
 

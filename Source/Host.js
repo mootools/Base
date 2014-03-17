@@ -2,7 +2,7 @@
 The Host object
 */
 
-define(function(){
+define(['./Core'], function(Core){
 
 "use strict";
 
@@ -41,7 +41,7 @@ Host.prototype.install = function(){
 
 // Host class
 
-return function(object){
+return (Core.Host = function(object){
 
 	if (object instanceof Host){
 		var host = create(object);
@@ -51,6 +51,6 @@ return function(object){
 
 	return new Host(object);
 
-};
+});
 
 });
